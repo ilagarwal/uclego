@@ -5,9 +5,10 @@ package DesignLibrary
  */
 
 import com.uc.lego.api.DSLAnnotation;
-import com.uc.lego.uclego.dsl_view
+import com.uc.lego.uclego.add_dsl_view
 
 @DSLAnnotation
 class DSL {
-    val headerView = dsl_view()
+
+    val view = add_dsl_view()
 }

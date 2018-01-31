@@ -37,9 +37,10 @@ class DSLProcessor : AbstractProcessor() {
         val source = generateSourceSource(`package`, className)
         val relativePath = `package`.replace('.', File.separatorChar)
         val folder = File(kaptKotlinGenerated, relativePath).apply { mkdirs() }
-        val xmlfolder = File("./app/src/main/res/", "layout/").apply { mkdirs() }
-        File(xmlfolder, "generated_layout_file.xml").writeText(generatedXML())
         File(folder, "Generated$className.kt").writeText(source)
+        //val xmlfolder = File("./app/src/main/res/", "layout/").apply { mkdirs() }
+        //File(xmlfolder, "generated_layout_file.xml").writeText(generatedXML())
+
     }
 
     private fun generateSourceSource(`package`: String, className: String) =
@@ -53,7 +54,7 @@ class DSLProcessor : AbstractProcessor() {
         """.trimIndent()
 
 
-    private fun generatedXML() =
+    /*private fun generatedXML() =
             """<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android"
 android:layout_width="match_parent"
@@ -67,7 +68,7 @@ android:layout_width="match_parent"
 android:layout_height="wrap_content"/>
 
 </LinearLayout>
-            """
+            """*/
 
 
 }

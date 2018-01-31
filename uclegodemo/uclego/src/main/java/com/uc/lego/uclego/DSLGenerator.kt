@@ -5,6 +5,6 @@ package com.uc.lego.uclego
  */
 
 
-fun dsl_view(){
+fun add_dsl_view(){
 
 }
