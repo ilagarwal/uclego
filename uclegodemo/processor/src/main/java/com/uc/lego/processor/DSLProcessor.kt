@@ -38,8 +38,8 @@ class DSLProcessor : AbstractProcessor() {
         val relativePath = `package`.replace('.', File.separatorChar)
         val folder = File(kaptKotlinGenerated, relativePath).apply { mkdirs() }
         File(folder, "Generated$className.kt").writeText(source)
-        //val xmlfolder = File("./app/src/main/res/", "layout/").apply { mkdirs() }
-        //File(xmlfolder, "generated_layout_file.xml").writeText(generatedXML())
+        val xmlfolder = File("./app/src/main/res/", "layout/").apply { mkdirs() }
+        File(xmlfolder, "generated_layout_file_dsl.xml").writeText(generatedXML())
 
     }
 
@@ -54,21 +54,25 @@ class DSLProcessor : AbstractProcessor() {
         """.trimIndent()
 
 
-    /*private fun generatedXML() =
-            """<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="vertical">
+    private fun generatedXML() =
+            """<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+         />
+
+</android.support.design.widget.CoordinatorLayout>
 
 
-<FrameLayout
-android:id=@+id/container
-android:layout_width="match_parent"
-android:layout_height="wrap_content"/>
 
-</LinearLayout>
-            """*/
+            """
 
 
 }
