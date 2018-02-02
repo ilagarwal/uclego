@@ -1,4 +1,4 @@
-package com.uc.lego.uclego
+package com.uc.lego
 
 /**
  * Created by ilaaggarwal on 18/01/18.

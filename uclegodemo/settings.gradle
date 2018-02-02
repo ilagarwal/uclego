@@ -1,1 +1,1 @@
-include ':app', ':uclego', ':processor', ':api'
+include ':app', ':processor', ':uclego'

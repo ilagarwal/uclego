@@ -47,28 +47,53 @@ class DSLProcessor : AbstractProcessor() {
             """
         package $`package`
 
-        class Generated$className {
+import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.Typeface;
+import android.support.v7.widget.AppCompatTextView;
+import android.text.TextUtils;
+import android.util.AttributeSet;
 
+/**
+ * Generated : Donot edit
+ */
+public class Generated$className extends AppCompatTextView {
+
+    public UCTextView(Context context) {
+        super(context);
+        init(null);
+    }
+
+    public UCTextView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        init(attrs);
+    }
+
+    public UCTextView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        init(attrs);
+    }
+
+    private void init(AttributeSet attrs) {
+        TypedArray ta = getContext().obtainStyledAttributes(attrs, R.styleable.UCTextView);
+        String fontFamily = ta.getString(R.styleable.UCTextView_fontFamily);
+        ta.recycle();
+        if (isInEditMode()) {
+            FontCacheUtils.init(getContext());
         }
-
+        if (TextUtils.isEmpty(fontFamily)) {
+            fontFamily = FontCacheUtils.TYPE_REGULAR;
+        }
+        Typeface typeFace = FontCacheUtils.getTypeFace(fontFamily);
+        setTypeface(typeFace);
+    }
+}
         """.trimIndent()
 
 
     private fun generatedXML() =
-            """<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+            """
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-         />
-
-</android.support.design.widget.CoordinatorLayout>
 
 
 

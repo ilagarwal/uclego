@@ -1,4 +1,4 @@
-package com.uc.lego.uclegodemo
+package com.uc.lego.DesignLibrary
 
 import com.uc.lego.api.DSLAnnotation
 
@@ -7,7 +7,5 @@ import com.uc.lego.api.DSLAnnotation
  */
 
 @DSLAnnotation
-class DSL {
-
-}
+class PrimaryButton {}
 
